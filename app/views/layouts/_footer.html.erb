@@ -1,0 +1,43 @@
+<footer class="text-center mt-auto small footer">
+  <div class="bg-secondary container-fluid">
+
+    <div class="row p-1">
+      <div class="col d-flex align-items-center">
+        <a href="http://mangroveworld.org" target="_blank" class="text-light-footer">
+          <%= t(:mangrove_world) %>
+        </a>
+      </div>
+      <div class="col">
+        <%= t(:contact_us) %>
+      </div>
+      <div class="col">
+        Links
+      </div>
+      <div class="col">
+        Photographers
+      </div>
+      <div class="col d-flex align-items-center justify-content-end">
+        <% if logged_in? %>
+          <%= link_to t(:logout), logout_path, class: "me-4 text-light-footer", method: :delete %>
+        <% else %>
+          <%= link_to t(:login), login_path, class: "me-4 text-light-footer" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center" style="background-color: #f5daf5;">
+    <div class="row p-2" style="font-size:9pt">
+      <div class="col text-start">
+        © 2022 Copyright:
+        <a class="text-dark-footer" href="#">mangrovegarden.org</a>
+      </div>
+      <div class="col text-end">
+        Developed by: 
+        <a href="" class="text-dark-footer">NTR Computer Services</a>
+      </div>
+    </div>
+
+ </div>
+
+</footer>

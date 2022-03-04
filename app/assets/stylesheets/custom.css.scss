@@ -1,0 +1,74 @@
+@import "bootstrap-icons/font/bootstrap-icons";
+@font-face {
+  font-family: "bootstrap-icons";
+  src: font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
+    font-url("bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+}
+@import 'bootstrap/dist/css/bootstrap';
+
+body{
+  // font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: #5B2D59;
+  // background-color: #f1e5f1;
+}
+
+.text-light-footer{
+  color:  #f1e5f1;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: #5B2D59; 
+  }
+}
+
+.text-dark-footer{
+  color: black;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: #5B2D59;
+  } 
+}
+
+.main-display{
+  min-width: 330px;
+  // font-family: "Tahoma, sans-serif";
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: none;
+  z-index: 99; 
+}
+
+.background-image {
+   background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), asset_url('mgf_background.jpg');
+  // background-image: asset_url('mgf_background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.brand {
+  display: inline-block;
+  align-items: center;
+  background-image: asset_url('mgf_logo_sm.jpg');
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 64px;
+}
+
+.brand-text{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin-left: 65px;
+  display: block;
+  line-height: 90%;
+}
+
+.nav-link{
+  color: #5b2d59 !important;
+  &:hover, &:focus {
+    color: #220020 !important;
+  } 
+}
+
