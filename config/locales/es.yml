@@ -11,7 +11,9 @@ es:
   login: "Acceso"
   logout: "Cerrar sesión"
   mangrove_world: "Mundo de los Manglares"
-
+  resources: "Recursos"
+  photographers: "Fotógrafos"
+  links: "Enlaces"
 
   logged_in: "Iniciado sesión con éxito"
   logged_out: "Desconectado"

@@ -2,19 +2,23 @@
   <div class="bg-secondary container-fluid">
 
     <div class="row p-1">
-      <div class="col d-flex align-items-center">
-        <a href="http://mangroveworld.org" target="_blank" class="text-light-footer">
-          <%= t(:mangrove_world) %>
-        </a>
+      <div class="col">
+        <h5 class="text-uppercase mb-0 header-light-footer"><%= t(:resources) %></h5>
+         <ul class="list-unstyled mb-0">
+          <li>
+            <a href="http://mangroveworld.org" target="_blank" class="text-light-footer">
+              <%= t(:mangrove_world) %>
+            </a>
+          </li>
+          <li><a href="#" class="text-light-footer"><%= t(:links) %></a></li>
+        </ul>
       </div>
       <div class="col">
-        <%= t(:contact_us) %>
-      </div>
-      <div class="col">
-        Links
-      </div>
-      <div class="col">
-        Photographers
+        <h5 class="text-uppercase mb-0 header-light-footer"><%= t(:photographers) %></h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#" class="text-light-footer">Alfredo Pastor</a></li>
+            <li><a href="#" class="text-light-footer">James Phillips</a></li>
+          </ul>
       </div>
       <div class="col d-flex align-items-center justify-content-end">
         <% if logged_in? %>

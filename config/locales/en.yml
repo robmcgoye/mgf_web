@@ -42,6 +42,9 @@ en:
   login: "Login"
   logout: "Logout"
   mangrove_world: "Mangrove World"
+  resources: "Resources"
+  photographers: "Photographers"
+  links: "Links"
 
   logged_in: "Logged in successfully"
   logged_out: "Logged out"
