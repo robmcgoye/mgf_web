@@ -23,7 +23,11 @@ es:
 
   page:
     success: "La página se actualizó con éxito."
-  
+
+  contact_form:
+    title: "Mandanos un mensaje"
+    submit_button: "Enviar mensaje"
+
   session:
     title: "Acceso"
     email: "Correo electrónico"
@@ -31,6 +35,15 @@ es:
     password: "Clave"
     password_placeholder: "Ingresa tu contraseña"
     submit_button: "Acceso"
+
+  activemodel:
+    models:
+      contact_form: "Mensaje"    
+    attributes:
+      contact_form:
+        name: "Nombre"
+        email: "Correo electrónico"
+        message: "Mensaje"
 
   activerecord:
     models:

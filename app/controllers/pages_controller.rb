@@ -22,6 +22,18 @@ class PagesController < ApplicationController
     @page = load_page(:philosophy)
   end
 
+  def links
+    @page = load_page(:links)
+  end
+
+  def photographer_1
+    @page = load_page(:photographer_1)
+  end
+
+  def photographer_2
+    @page = load_page(:photographer_2)
+  end
+
   def edit
   end
 
@@ -31,8 +43,13 @@ class PagesController < ApplicationController
 
   def update
     if @page.update(page_params)
-      flash.now[:notice] = I18n.t("page.success")
-      render @page.name
+      if @page.name == "contact"
+        flash[:notice] = I18n.t("page.success")
+        redirect_to new_contact_form_path
+      else
+        flash.now[:notice] = I18n.t("page.success")
+        render @page.name
+      end
     else
       render :edit
     end

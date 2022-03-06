@@ -54,7 +54,11 @@ en:
 
   page:
     success: "Page was successfully updated."
- 
+
+  contact_form:
+    title: "Send us a message"
+    submit_button: "Send Message"
+
   session:
     title: "Login"
     email: "Email"
@@ -63,12 +67,21 @@ en:
     password_placeholder: "Enter your password"
     submit_button: "Login"
 
+  activemodel:
+    models:
+      contact_form: "Message"    
+    attributes:
+      contact_form:
+        name: "Name"
+        email: "Email"
+        message: "Message"
+
   activerecord:
     models:
       page: "Page"
     attributes:
       page:
-        body: "body"
+        body: "Body"
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

@@ -1,0 +1,16 @@
+<% provide(:title, "Contact Us") %>
+
+<div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
+  <div class="row align-items-start card-body text-dark">
+    <div class="col">
+        <%= render 'form' %>
+    </div>
+    <div class="col p-2 rounded-lg m-1">
+      <% unless @page.body.blank? %>
+        <%= @page.body.html_safe %>
+      <% end %>
+      <%= link_to t(:edit_btn), edit_page_path(@page), class: "btn btn-sm btn-outline-dark" if admin_user? %>
+    </div>
+  </div>
+</div>
+

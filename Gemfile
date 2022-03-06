@@ -31,6 +31,7 @@ gem 'tinymce-rails', '~> 5.10', '>= 5.10.2'
 gem 'mobility', '~> 1.2.5'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
+gem 'invisible_captcha', '~> 2.0'
 #=========================================
 
 group :production do

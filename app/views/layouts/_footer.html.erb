@@ -10,14 +10,20 @@
               <%= t(:mangrove_world) %>
             </a>
           </li>
-          <li><a href="#" class="text-light-footer"><%= t(:links) %></a></li>
+          <li>
+            <%= link_to t(:links), links_path, class: "text-light-footer" %>
+          </li>
         </ul>
       </div>
       <div class="col">
         <h5 class="text-uppercase mb-0 header-light-footer"><%= t(:photographers) %></h5>
           <ul class="list-unstyled mb-0">
-            <li><a href="#" class="text-light-footer">Alfredo Pastor</a></li>
-            <li><a href="#" class="text-light-footer">James Phillips</a></li>
+            <li>
+              <%= link_to "Alfredo Pastor", photographer_1_path, class: "text-light-footer" %>
+            </li>
+            <li>
+              <%= link_to "James Phillips", photographer_2_path, class: "text-light-footer" %>
+            </li>
           </ul>
       </div>
       <div class="col d-flex align-items-center justify-content-end">
