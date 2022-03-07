@@ -58,6 +58,7 @@ en:
   contact_form:
     title: "Send us a message"
     submit_button: "Send Message"
+    thank_you: "Thank you for your message!"
 
   session:
     title: "Login"

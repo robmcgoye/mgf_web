@@ -1,5 +1,6 @@
 class ContactFormsController < ApplicationController
   before_action :load_page, only: [:new, :create]
+  invisible_captcha only: [:create], honeypot: :nickname
 
   def new
     @contact = ContactForm.new
@@ -9,8 +10,8 @@ class ContactFormsController < ApplicationController
     @contact = ContactForm.new(contact_params)
     if @contact.valid?
       # send email
-      # CheckoutMailer.new_order_email(current_user, session[:cart], @address).deliver_now
-      flash[:notice] = 'Thank you for your message!'
+      ContactUsMailer.send_message(@contact).deliver_now
+      flash[:notice] = I18n.t("contact_form.thank_you")
       redirect_to new_contact_form_path
     else
       render :new

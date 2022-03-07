@@ -4,6 +4,7 @@
   <%= form_with model: @contact do |form| %>
    <%= render 'shared/error_messages', resource: @contact %>
 
+    <%= form.invisible_captcha :nickname %>
 
     <div class="field form-group">
       <%= form.label :name %>

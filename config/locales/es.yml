@@ -27,7 +27,8 @@ es:
   contact_form:
     title: "Mandanos un mensaje"
     submit_button: "Enviar mensaje"
-
+    thank_you: "Gracias por tu mensaje!"
+    
   session:
     title: "Acceso"
     email: "Correo electrónico"
