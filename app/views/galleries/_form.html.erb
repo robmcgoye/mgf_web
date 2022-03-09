@@ -30,8 +30,8 @@
   </div>
   
   <div class="form-group pt-2">
-    <%= form.fields_for :photos do |photos_form| %>
-      <%= render 'photo_fields', f: photos_form %>
+    <%= form.fields_for :photos do |photo| %>
+      <%= render 'photo_fields', f: photo %>
     <% end %>
     <div class="py-2">
       <%= link_to_add_association 'Add Photo', form, :photos, class: 'btn btn-sm btn-dark' %>

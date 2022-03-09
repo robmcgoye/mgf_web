@@ -7,7 +7,7 @@
       <div class="col">
         <small><%= f.object.picture_identifier %></small>
       </div>
-    <% else %>
+    <% end %>
       <div class="field input-group col">
         <label class="input-group-text" for="inputGroupFile01">
           <%= f.label :picture %>
@@ -15,11 +15,10 @@
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', 
                         class: "form-control", id: "inputGroupFile01" %>
       </div>
-    <% end %>
-  </div>  
+ </div>  
   <div class="field form-group pt-2">
     <%= f.label :caption %>
-    <%= f.text_field :caption, class: "form-control" %>
+    <%= f.text_area :caption, value: f.object.caption(fallback: false, default: nil), rows: "3", class: "form-control" %>
   </div>
 
   <div class="col d-flex justify-content-end pt-1">

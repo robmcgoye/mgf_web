@@ -31,6 +31,8 @@ class GalleriesController < ApplicationController
       flash[:notice] = "Gallery was successfully updated."
       redirect_to gallery_url(@gallery)
     else
+      
+      byebug
       render :edit
     end
   end
