@@ -32,6 +32,7 @@ gem 'mobility', '~> 1.2.5'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
 gem 'invisible_captcha', '~> 2.0'
+gem 'cocoon', '~> 1.2', '>= 1.2.15'
 #=========================================
 
 group :production do

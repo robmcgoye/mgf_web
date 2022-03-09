@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     end
     resources :pages, only: [:edit, :update, :show]
     post 'tinymce_assets', to: 'tinymce_assets#create'
-    resources :contact_forms, only: [:new, :create] 
+    resources :contact_forms, only: [:new, :create]
+    resources :galleries 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'

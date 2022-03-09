@@ -1,0 +1,10 @@
+<% provide(:title, "New Gallery") %>
+
+<div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
+  <div class="card-body text-dark">
+    <h2>New Gallery</h2>
+    <%= render 'form', gallery: @gallery %>
+    <%= link_to 'Back', galleries_path %>
+  </div>
+</div>
+

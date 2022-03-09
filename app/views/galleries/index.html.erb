@@ -1,0 +1,41 @@
+<% provide(:title, "Galleries") %>
+<div class="row align-items-center">
+  <div class="col-md-auto">
+    <h3 class="text-light"><%= "Photo Gallery" %></h3>
+  </div>
+  <div class="col-md-auto">
+    <%= link_to "New Gallery", new_gallery_path, 
+                class: "btn btn-sm btn-outline-light" if admin_user? %>
+  </div>
+</div>
+
+<div class="album py-2">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @galleries.each do |gallery| %>
+        <div class="col gallery-listing-col">
+          <div class="card shadow-sm" style="background-color: #f1e5f1">
+
+            <%= image_tag(gallery.thumbnail_url, 
+                        class: "card-img-top") if gallery.thumbnail.present? %>
+            <div class="card-body">
+              <p class="small card-text">
+                <%= gallery.title %>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to 'View', gallery, 
+                          class: "btn btn-sm btn-outline-dark" %> 
+                  <%= link_to 'Edit', edit_gallery_path(gallery), 
+                            class: "btn btn-sm btn-outline-dark" if admin_user? %> 
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

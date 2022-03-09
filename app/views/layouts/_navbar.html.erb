@@ -2,17 +2,20 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand brand" do %>
       <div class="pt-2">
-        <div class="brand-text text-center"> Mangrove </div>
-        <div class="brand-text"> Garden Foundation </div>
+        <div class="brand-text"> Mangrove Garden </div>
+        <div class="brand-text text-center"> Foundation </div>
       </div>
     <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown d-flex align-items-center">
-          <a class="nav-link dropdown-toggle lh-1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle lh-1" href="#" id="navbarDropdown" 
+                  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi-info-circle pe-1"></i><%= t "about_us" %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,9 +45,7 @@
           </a>
         </li>
         <li class="nav-item d-flex align-items-center">
-          <a class="nav-link lh-1" href="#">
-            <%= t(:photo_gallery) %>
-          </a>
+          <%= link_to t(:photo_gallery), galleries_path, class: "nav-link lh-1" %>
         </li>
         <li class="nav-item d-flex align-items-center">
           <%= link_to new_contact_form_path, class: "nav-link lh-1" do %>

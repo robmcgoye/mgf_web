@@ -43,12 +43,11 @@ class PagesController < ApplicationController
 
   def update
     if @page.update(page_params)
+      flash[:notice] = I18n.t("page.success")
       if @page.name == "contact"
-        flash[:notice] = I18n.t("page.success")
         redirect_to new_contact_form_path
       else
-        flash.now[:notice] = I18n.t("page.success")
-        render @page.name
+        redirect_to url_for(@page)
       end
     else
       render :edit

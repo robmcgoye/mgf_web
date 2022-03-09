@@ -1,0 +1,28 @@
+<div class="form-group nested-fields py-2 px-1 border border-dark">
+  <div class="row align-items-center pt-1">
+    <% if f.object.picture.present? %>
+      <div class="col-1"> 
+        <%= image_tag f.object.picture_url, size: "32" %>
+      </div>
+      <div class="col">
+        <small><%= f.object.picture_identifier %></small>
+      </div>
+    <% else %>
+      <div class="field input-group col">
+        <label class="input-group-text" for="inputGroupFile01">
+          <%= f.label :picture %>
+        </label>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', 
+                        class: "form-control", id: "inputGroupFile01" %>
+      </div>
+    <% end %>
+  </div>  
+  <div class="field form-group pt-2">
+    <%= f.label :caption %>
+    <%= f.text_field :caption, class: "form-control" %>
+  </div>
+
+  <div class="col d-flex justify-content-end pt-1">
+    <%= link_to_remove_association 'Remove Image', f, class: 'btn btn-sm btn-outline-dark' %>
+  </div>
+</div>  

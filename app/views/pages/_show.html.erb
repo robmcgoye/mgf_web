@@ -1,8 +1,10 @@
-<div class="card mb-3 shadow-lg rounded border main-display<%= ' background-image' if show_background %>" style="background-color: #f1e5f1">
+<div class="card mb-3 shadow-lg rounded border main-display<%= ' background-image' if show_background %>" 
+        style="background-color: #f1e5f1">
   <div class="card-body text-dark">
       <% unless page.body.blank? %>
         <%= page.body.html_safe %>
       <% end %>
   </div>
 </div>
-<%= link_to t(:edit_btn), edit_page_path(page), class: "btn btn-sm btn-outline-light" if admin_user? %>
+<%= link_to t(:edit_btn), edit_page_path(page), 
+            class: "btn btn-sm btn-outline-light" if admin_user? %>

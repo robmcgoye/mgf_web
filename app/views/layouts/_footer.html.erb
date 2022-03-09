@@ -19,16 +19,19 @@
         <h5 class="text-uppercase mb-0 header-light-footer"><%= t(:photographers) %></h5>
           <ul class="list-unstyled mb-0">
             <li>
-              <%= link_to "Alfredo Pastor", photographer_1_path, class: "text-light-footer" %>
+              <%= link_to "Alfredo Pastor", photographer_1_path, 
+                          class: "text-light-footer" %>
             </li>
             <li>
-              <%= link_to "James Phillips", photographer_2_path, class: "text-light-footer" %>
+              <%= link_to "James Phillips", photographer_2_path, 
+                            class: "text-light-footer" %>
             </li>
           </ul>
       </div>
       <div class="col d-flex align-items-center justify-content-end">
         <% if logged_in? %>
-          <%= link_to t(:logout), logout_path, class: "me-4 text-light-footer", method: :delete %>
+          <%= link_to t(:logout), logout_path, class: "me-4 text-light-footer", 
+                        method: :delete %>
         <% else %>
           <%= link_to t(:login), login_path, class: "me-4 text-light-footer" %>
         <% end %>

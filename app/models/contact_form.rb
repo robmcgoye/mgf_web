@@ -4,7 +4,6 @@ class ContactForm
   extend ActiveModel::Translation
   extend ActiveModel::Naming
 
-
   attr_accessor :name, :email, :message
   
   VALID_EMAIL_REGEX = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i

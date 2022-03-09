@@ -15,5 +15,8 @@ ActiveStorage.start()
 
 // require('jquery-ui')
 // require('fotorama')
-// require("@nathanvda/cocoon")
+require("@nathanvda/cocoon")
 import "scroll_top.js"
+import "carousel_caption.js";
+
+
