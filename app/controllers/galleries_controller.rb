@@ -31,8 +31,6 @@ class GalleriesController < ApplicationController
       flash[:notice] = "Gallery was successfully updated."
       redirect_to gallery_url(@gallery)
     else
-      
-      byebug
       render :edit
     end
   end
@@ -51,7 +49,7 @@ class GalleriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gallery_params
-      params.require(:gallery).permit(:title, :thumbnail,
-                                photos_attributes: [:id, :picture, :caption, :_destroy])
+      params.require(:gallery).permit(:title, :thumbnail, :sort_order, 
+                    photos_attributes: [:id, :picture, :caption, :sort_order,:_destroy])
     end
 end

@@ -1,0 +1,13 @@
+<% provide(:title, "Event") %>
+<div class="card mb-3 shadow-lg rounded border main-display" 
+        style="background-color: #f1e5f1">
+  <i class="pt-1 ps-3">
+    <h3><%= @event.title %></h3>
+    <%= @event.event_date.strftime("%A, %b %d, %Y") %>
+  </i>
+  <div class="card-body text-dark">
+      <% unless @event.body.blank? %>
+        <%= @event.body.html_safe %>
+      <% end %>
+  </div>
+</div>

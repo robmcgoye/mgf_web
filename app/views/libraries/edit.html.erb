@@ -1,0 +1,13 @@
+<% provide(:title, "Edit Resource") %>
+<div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
+  <div class="card-body text-dark">
+    <h2>Edit Resource</h2>
+    <%= render 'form', library: @library %>
+    <div class="btn-group p-2">
+      <%= link_to 'Delete', @library, class: "btn btn-sm btn-outline-dark", 
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Show', @library, class: "btn btn-sm btn-outline-dark" %> 
+      <%= link_to 'Back', libraries_path, class: "btn btn-sm btn-outline-dark"%>
+    </div>
+  </div>
+</div>

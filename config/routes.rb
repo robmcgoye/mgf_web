@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     post 'tinymce_assets', to: 'tinymce_assets#create'
     resources :contact_forms, only: [:new, :create]
     resources :galleries 
+    resources :events 
+    resources :libraries 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'

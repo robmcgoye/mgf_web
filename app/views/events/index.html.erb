@@ -1,10 +1,10 @@
-<% provide(:title, "Galleries") %>
+<% provide(:title, "Events") %>
 <div class="row align-items-center">
   <div class="col-md-auto">
-    <h3 class="text-light"><%= "Photo Gallery" %></h3>
+    <h3 class="text-light"><%= "Events" %></h3>
   </div>
   <div class="col-md-auto">
-    <%= link_to "New Gallery", new_gallery_path, 
+    <%= link_to "New Event", new_event_path, 
                 class: "btn btn-sm btn-outline-light" if admin_user? %>
   </div>
 </div>
@@ -12,28 +12,26 @@
 <div class="album py-2">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <% @galleries.each do |gallery| %>
-        <div class="col gallery-listing-col">
+      <% @events.each do |event| %>
+        <div class="col">
           <div class="card shadow-sm" style="background-color: #f1e5f1">
 
-            <%= image_tag(gallery.thumbnail_url, 
-                        class: "card-img-top") if gallery.thumbnail.present? %>
+            <%= image_tag(event.thumbnail_url, 
+                        class: "card-img-top") if event.thumbnail.present? %>
             <div class="card-body">
               <p class="small card-text">
-                <%= gallery.title %>
+                <b><%= event.title %></b><br>
+                <i><%= event.event_date.strftime("%A, %b %d, %Y") %></i>
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <%= link_to 'View', gallery, 
+                  <%= link_to 'View', event, 
                           class: "btn btn-sm btn-outline-dark" %> 
-                  <%= link_to 'Edit', edit_gallery_path(gallery), 
+                  <%= link_to 'Edit', edit_event_path(event), 
                             class: "btn btn-sm btn-outline-dark" if admin_user? %> 
-                  <%= link_to 'Delete', gallery, class: "btn btn-sm btn-outline-dark", 
-                            method: :delete, data: { confirm: 'Are you sure?' } if admin_user? %>
+
+
                 </div>
-                <span class="text-end">
-                  <%= "Sort: #{gallery.sort_order}" if admin_user? %>
-                </span>
               </div>
             </div>
           </div>

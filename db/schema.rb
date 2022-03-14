@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_142051) do
+ActiveRecord::Schema.define(version: 2022_03_13_185121) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "thumbnail"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "event_date"
+  end
 
   create_table "galleries", force: :cascade do |t|
     t.string "title"
     t.string "thumbnail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sort_order", default: 0
+  end
+
+  create_table "libraries", force: :cascade do |t|
+    t.string "title"
+    t.string "link"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "action"
   end
 
   create_table "mobility_string_translations", force: :cascade do |t|
@@ -57,7 +76,17 @@ ActiveRecord::Schema.define(version: 2022_03_07_142051) do
     t.string "picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sort_order", default: 0
     t.index ["gallery_id"], name: "index_photos_on_gallery_id"
+  end
+
+  create_table "subtitles", force: :cascade do |t|
+    t.integer "library_id", null: false
+    t.string "title"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["library_id"], name: "index_subtitles_on_library_id"
   end
 
   create_table "tiny_images", force: :cascade do |t|
@@ -78,4 +107,5 @@ ActiveRecord::Schema.define(version: 2022_03_07_142051) do
   end
 
   add_foreign_key "photos", "galleries"
+  add_foreign_key "subtitles", "libraries"
 end

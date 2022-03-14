@@ -1,0 +1,11 @@
+<% provide(:title, "Resource") %>
+<div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
+  <div class="card-body text-dark">
+    <h3><%= @library.title %></h3>
+      <% unless @library.body.blank? %>
+        <%= @library.body.html_safe %>
+      <% end %>
+  </div>
+</div>
+<%= link_to t(:edit_btn), edit_library_path(@library), 
+            class: "btn btn-sm btn-outline-light" if admin_user? %>

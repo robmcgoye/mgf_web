@@ -35,14 +35,10 @@
         </li>
 
         <li class="nav-item d-flex align-items-center">
-          <a class="nav-link lh-1" href="#lib">
-            <%= t(:mangrove_library) %>
-          </a>
+          <%= link_to t(:mangrove_library), libraries_path, class: "nav-link lh-1" %> 
         </li>
         <li class="nav-item d-flex align-items-center">
-          <a class="nav-link lh-1" href="#event">
-            <%= t(:events) %>
-          </a>
+          <%= link_to t(:events), events_path, class: "nav-link lh-1" %> 
         </li>
         <li class="nav-item d-flex align-items-center">
           <%= link_to t(:photo_gallery), galleries_path, class: "nav-link lh-1" %>

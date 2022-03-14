@@ -1,0 +1,53 @@
+<%= form_with(model: library, mulitpart: true) do |form| %>
+  <%= render 'shared/error_messages', resource: library %>
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>  
+  <hr>
+  <div class="row">
+    <div class="col">
+      <div class="form-check form-check-inline">
+        <%= form.label :action, "Link", class: "form-check-label", for: "inlineRadio1" %>
+        <%= form.radio_button :action, "link", class: "form-check-input", id: "inlineRadio1" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.label :action, "Page", class: "form-check-label", for: "inlineRadio2" %>
+        <%= form.radio_button :action, "page", class: "form-check-input", id: "inlineRadio2" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.label :action, "None", class: "form-check-label", for: "inlineRadio3" %>
+        <%= form.radio_button :action, "none", class: "form-check-input", id: "inlineRadio3" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Hide</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :link %>
+    <%= form.text_field :link, class: "form-control" %>
+  </div>
+  
+  <div class="field form-group pt-2">
+    <%= form.text_area :body, class: "tinymce" %>
+    <%= tinymce %>
+  </div>
+
+  <div class="form-group pt-2">
+    <%= form.fields_for :subtitles do |subtitle| %>
+      <%= render 'subtitle_fields', f: subtitle %>
+    <% end %>
+    <div class="py-2">
+      <%= link_to_add_association 'Add Subtitle', form, :subtitles, class: 'btn btn-sm btn-dark' %>
+    </div>
+  </div>
+
+  <div class="actions pt-2">
+    <%= form.submit class: "btn btn-sm btn-outline-dark" %>
+  </div>
+<% end %>

@@ -1,0 +1,74 @@
+<% provide(:title, "Resources") %>
+
+<div class="card mb-3 shadow-lg rounded border main-display" 
+        style="background-color: #f1e5f1">
+  <div class="card-body text-dark">
+
+    <div class="container-fluid py-5 d-flex justify-content-center align-items-end text-white" id="library_background">
+      <div class="row row-cols-1 fw-bold text-center">
+        <div class="col">
+          <%= link_to "New Resource", new_library_path, class: "btn btn-sm btn-outline-light" if admin_user? %>
+        </div>
+        <div class="col fs-4">
+          Welcome to the ever growing, Mangrove Library
+        </div>
+        <div class="col pt-3">
+          Where you have free access to Mangrove and Wetland related information.
+        </div>
+      </div>
+    </div>
+    <div class="container pt-2">
+      <div class="accordion" id="accordionLib">
+        <% @libraries.each_with_index do |library, index| %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%= index %>">
+              <button class="accordion-button<%= " collapsed" if index != 0 %>" type="button" data-bs-toggle="collapse" 
+                      data-bs-target="#collapse<%= index %>" 
+                      aria-expanded=<%= index == 0 ? "true" : "false" %>
+                      aria-controls="collapse<%= index %>">
+                <%= library.title %>
+              </button>
+            </h2>
+            <div id="collapse<%= index %>" class="accordion-collapse collapse<%= " show" if index == 0 %>" 
+                  aria-labelledby="heading<%= index %>" data-bs-parent="#accordionLib">
+              <div class="accordion-body">
+                <% if library.action == "page" %>
+                  <%= link_to library_path(library), class: "library-heading" do %>
+                    <i class="bi bi-folder-symlink"></i>
+                    <%= library.title %>
+                  <% end %>
+                <% elsif library.action == "link" %>
+                  <%= link_to library.link, class: "library-heading", target: "_blank" do %>
+                    <i class="bi bi-link"></i>
+                    <%= library.title %>
+                  <% end %>
+                <% end %>
+                <% if library.subtitles.present? %>
+                  <div class="list-group">              
+                    <% library.subtitles.each do |subtitle| %>
+                      <% if subtitle.link.present? %>
+                        <%= link_to subtitle.link, class: "list-group-item list-group-item-action list-group-item-light" do %>
+                          <i class="bi bi-link"></i>
+                          <%= subtitle.title %>
+                        <% end %>
+                      <% else %>
+                        <span class="list-group-item list-group-item-light">
+                          <i class="bi bi-dot"></i>
+                          <%= subtitle.title %>
+                        </span>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="container pt-1">
+                  <%= link_to 'Edit', edit_library_path(library), 
+                            class: "btn btn-sm btn-outline-dark" if admin_user? %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+  </div>
+</div>
