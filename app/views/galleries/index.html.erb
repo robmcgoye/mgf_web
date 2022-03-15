@@ -1,10 +1,10 @@
-<% provide(:title, "Galleries") %>
+<% provide(:title, t("gallery.title.index")) %>
 <div class="row align-items-center">
   <div class="col-md-auto">
-    <h3 class="text-light"><%= "Photo Gallery" %></h3>
+    <h3 class="text-light"><%= t("gallery.heading") %></h3>
   </div>
   <div class="col-md-auto">
-    <%= link_to "New Gallery", new_gallery_path, 
+    <%= link_to t("gallery.new"), new_gallery_path, 
                 class: "btn btn-sm btn-outline-light" if admin_user? %>
   </div>
 </div>
@@ -24,15 +24,15 @@
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <%= link_to 'View', gallery, 
+                  <%= link_to t(:view_button), gallery, 
                           class: "btn btn-sm btn-outline-dark" %> 
-                  <%= link_to 'Edit', edit_gallery_path(gallery), 
+                  <%= link_to t(:edit_button), edit_gallery_path(gallery), 
                             class: "btn btn-sm btn-outline-dark" if admin_user? %> 
-                  <%= link_to 'Delete', gallery, class: "btn btn-sm btn-outline-dark", 
-                            method: :delete, data: { confirm: 'Are you sure?' } if admin_user? %>
+                  <%= link_to t(:delete_button), gallery, class: "btn btn-sm btn-outline-dark", 
+                            method: :delete, data: { confirm: t(:delete_confirmation) } if admin_user? %>
                 </div>
                 <span class="text-end">
-                  <%= "Sort: #{gallery.sort_order}" if admin_user? %>
+                  <%= "#{t(:sort)}: #{gallery.sort_order}" if admin_user? %>
                 </span>
               </div>
             </div>

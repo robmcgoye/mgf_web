@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   about_us: "About Us"
   mangrove_library: "Resources"
@@ -38,14 +7,21 @@ en:
   mission: "Mission"
   hisotry: "History"
   philosophy: "Mangrove Philosophy"
-  edit_btn: "Edit"
-  login: "Login"
-  logout: "Logout"
   mangrove_world: "Mangrove World"
   resources: "Resources"
   photographers: "Photographers"
   links: "Links"
 
+  edit_button: "Edit"
+  view_button: "View"
+  delete_button: "Delete"
+  delete_confirmation: "Are you sure?"
+  back_button: "Back"
+
+  sort: "Sort"
+
+  login: "Login"
+  logout: "Logout"
   logged_in: "Logged in successfully"
   logged_out: "Logged out"
   failed_login: "There was something wrong your login details"
@@ -54,6 +30,55 @@ en:
 
   page:
     success: "Page was successfully updated."
+    title:
+      about: "About Us"
+      history: "History"
+      home: "Home"
+      links: "Links"
+      mission: "Mission"
+      philosophy: "Mangrove Philosophy"
+      photographer: "Photographer %{name}"
+
+  event:
+    new: "New Event"
+    edit: "Edit Event"
+    heading: "Events"
+    updated: "Event was successfully updated."
+    created: "Event was successfully created."
+    deleted: "Event was successfully deleted."
+
+  gallery:
+    new: "New Gallery"
+    edit: "Edit Gallery"
+    heading: "Photo Gallery"
+    next: "Next"
+    previous: "Previous"
+    created: "Gallery was successfully created."
+    updated: "Gallery was successfully updated."
+    deleted: "Gallery was successfully deleted."
+    add_photo: "Add Photo"
+    remove_photo: "Remove Photo"
+    title: 
+      index: "Galleries"
+      show: "Gallery"
+
+  library:
+    new: "New Resource"
+    edit: "Edit Resource"
+    welcome_heading: "Welcome to the ever growing, Mangrove Library"
+    welcome_subheading: "Where you have free access to Mangrove and Wetland related information."
+    updated: "Library was successfully updated." 
+    created: "Library was successfully created."
+    deleted: "Library was successfully deleted."
+    add_subtitle: "Add Subtitle"
+    remove_subtitle: "Remove Subtitle"
+    title: 
+      index: "Resources"
+      show: "Resource"
+    action:
+      link: "Link"
+      page: "Page"
+      none: "None"
 
   contact_form:
     title: "Send us a message"
@@ -80,9 +105,32 @@ en:
   activerecord:
     models:
       page: "Page"
+      gallery: "Gallery"
+      photo: "Photo"
+      event: "Event"
+      library: "Library"
+      subtitle: "Subtitle"
     attributes:
       page:
         body: "Body"
+      gallery:
+        sort_order: "Sort Order"
+        title: "Title"
+        thumbnail: "Thumbnail"
+      photo:
+        picture: "Picture"
+        sort_order: "Sort Order"
+        caption: "Caption"
+      event:
+        title: "Title"
+        event_date: "Event Date"
+        thumbnail: "Thumbnail"
+      library:
+        title: "Title"
+        link: "Link"
+      subtitle:
+        title: "Title"
+        link: "Link"
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -124,6 +172,7 @@ en:
       default: "%m-%d-%Y"
       long: "%B %d, %Y"
       short: "%b %d"
+      event: "%A, %b %d, %Y"
     month_names:
     - 
     - January

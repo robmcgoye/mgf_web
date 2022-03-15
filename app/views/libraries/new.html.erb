@@ -1,10 +1,10 @@
-<% provide(:title, "New resource") %>
+<% provide(:title, t("library.new")) %>
 
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
-    <h2>New Resource</h2>
+    <h2><%= t("library.new") %></h2>
     <%= render 'form', library: @library %>
-    <%= link_to 'Back', libraries_path %>
+    <%= link_to t(:back_button), libraries_path %>
   </div>
 </div>
 

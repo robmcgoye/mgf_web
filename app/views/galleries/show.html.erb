@@ -1,4 +1,4 @@
-<% provide(:title, "Gallery") %>
+<% provide(:title, t("gallery.title.show")) %>
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
     <h3><%= @gallery.title %></h3>
@@ -27,13 +27,13 @@
       <button class="carousel-control-prev" type="button" 
               data-bs-target="#photoGallery" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden"><%= t("gallery.previous") %></span>
       </button>
       
       <button class="carousel-control-next" type="button" 
               data-bs-target="#photoGallery" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden"><%= t("gallery.next") %></span>
       </button>
     </div>
     <div class="new-caption-area"></div>

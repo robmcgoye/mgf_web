@@ -7,18 +7,12 @@
   <hr>
   <div class="row">
     <div class="col">
-      <div class="form-check form-check-inline">
-        <%= form.label :action, "Link", class: "form-check-label", for: "inlineRadio1" %>
-        <%= form.radio_button :action, "link", class: "form-check-input", id: "inlineRadio1" %>
-      </div>
-      <div class="form-check form-check-inline">
-        <%= form.label :action, "Page", class: "form-check-label", for: "inlineRadio2" %>
-        <%= form.radio_button :action, "page", class: "form-check-input", id: "inlineRadio2" %>
-      </div>
-      <div class="form-check form-check-inline">
-        <%= form.label :action, "None", class: "form-check-label", for: "inlineRadio3" %>
-        <%= form.radio_button :action, "none", class: "form-check-input", id: "inlineRadio3" %>
-      </div>
+      <% Library.options.each_with_index do |a, index| %>
+        <div class="form-check form-check-inline">
+          <%= form.label :action, t("library.action.#{a}"), class: "form-check-label", for: "inlineRadio#{index.to_s}" %>
+          <%= form.radio_button :action, a, class: "form-check-input", id: "inlineRadio#{index.to_s}" %>
+        </div>
+      <% end %>
     </div>
     <div class="col">
       <div class="form-check form-switch">
@@ -43,7 +37,7 @@
       <%= render 'subtitle_fields', f: subtitle %>
     <% end %>
     <div class="py-2">
-      <%= link_to_add_association 'Add Subtitle', form, :subtitles, class: 'btn btn-sm btn-dark' %>
+      <%= link_to_add_association t("library.add_subtitle"), form, :subtitles, class: 'btn btn-sm btn-dark' %>
     </div>
   </div>
 

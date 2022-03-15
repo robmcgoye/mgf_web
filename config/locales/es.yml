@@ -7,14 +7,21 @@ es:
   mission: "Misión"
   hisotry: "Historia"
   philosophy: "Filosofía de los Manglares"
-  edit_btn: "Editar"
-  login: "Acceso"
-  logout: "Cerrar sesión"
   mangrove_world: "Mundo de los Manglares"
   resources: "Recursos"
   photographers: "Fotógrafos"
   links: "Enlaces"
 
+  edit_button: "Editar"
+  view_button: "Vista"
+  delete_button: "Borrar"
+  delete_confirmation: "Estas seguro?"
+  back_button: "Atrás"
+
+  sort: "Clasificar"
+
+  login: "Acceso"
+  logout: "Cerrar sesión"
   logged_in: "Iniciado sesión con éxito"
   logged_out: "Desconectado"
   failed_login: "Había algo mal en sus datos de inicio de sesión"
@@ -23,12 +30,61 @@ es:
 
   page:
     success: "La página se actualizó con éxito."
+    title:
+      about: "Sobre nosotros"
+      history: "Historia"
+      home: "Casa"
+      links: "Enlaces"
+      mission: "Misión"
+      philosophy: "Filosofía de los manglares"
+      photographer: "Fotógrafo %{name}"
+
+  event:
+    new: "Nuevo evento"
+    edit: "Editar evento"
+    heading: "Eventos"
+    updated: "El evento se actualizó con éxito."
+    created: "El evento fue creado con éxito."
+    deleted: "El evento fue eliminado con éxito."
+
+  gallery:
+    new: "Nueva galería"
+    edit: "Editar galería"
+    heading: "Galería de fotos"
+    next: "Próximo"
+    previous: "Previo"
+    updated: "La galería se actualizó con éxito."
+    created: "La galería fue creada con éxito."
+    deleted: "La galería se eliminó con éxito."
+    add_photo: "Añadir foto"
+    remove_photo: "Quita la imagen"    
+    title: 
+      index: "Galerías"
+      show: "Galería"
+
+  library:
+    new: "Nuevo recurso"
+    edit: "Editar recurso"
+    welcome_heading: "Bienvenido a la siempre creciente Biblioteca Mangrove"
+    welcome_subheading: "Donde tiene acceso gratuito a información relacionada con manglares y humedales."
+    updated: "La biblioteca se actualizó correctamente." 
+    created: "La biblioteca fue creada con éxito."
+    deleted: "La biblioteca se eliminó con éxito."
+    add_subtitle: "Agregar subtítulo"
+    remove_subtitle: "Eliminar subtítulo"
+    title: 
+      index: "Recursos"
+      show: "Recurso"
+    action:
+      link: "Enlace"
+      page: "Página"
+      none: "Ninguno"
 
   contact_form:
     title: "Mandanos un mensaje"
     submit_button: "Enviar mensaje"
     thank_you: "Gracias por tu mensaje!"
-    
+
   session:
     title: "Acceso"
     email: "Correo electrónico"
@@ -49,9 +105,32 @@ es:
   activerecord:
     models:
       page: "Página"
+      gallery: "Galería"
+      photo: "Foto"
+      event: "Evento"
+      library: "Biblioteca"
+      subtitle: "Subtitular"
     attributes:
       page:
         body: "cuerpo"
+      gallery:
+        sort_order: "Orden de clasificación"
+        title: "Título"
+        thumbnail: "Miniatura"
+      photo:
+        picture: "Imagen"
+        sort_order: "Orden de clasificación"
+        caption: "Subtítulo"
+      event:
+        title: "Título"
+        event_date: "Fecha del evento"
+        thumbnail: "Miniatura"
+      library:
+        title: "Título"
+        link: "Enlace"
+      subtitle:
+        title: "Título"
+        link: "Enlace"
     errors:
       messages:
         record_invalid: 'Falla de validación: %{errors}'
@@ -93,6 +172,7 @@ es:
       default: "%d/%m/%Y"
       long: "%A, %d de %B del %Y"
       short: "%d de %b"
+      event: "%A, %b %d, %Y"
     month_names:
     - 
     - enero

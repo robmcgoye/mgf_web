@@ -1,10 +1,10 @@
-<% provide(:title, "New Gallery") %>
+<% provide(:title, t("gallery.new")) %>
 
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
-    <h2>New Gallery</h2>
+    <h2><%= t("gallery.new") %></h2>
     <%= render 'form', gallery: @gallery %>
-    <%= link_to 'Back', galleries_path %>
+    <%= link_to t("back_button"), galleries_path %>
   </div>
 </div>
 

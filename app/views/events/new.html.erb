@@ -1,10 +1,10 @@
-<% provide(:title, "New Event") %>
+<% provide(:title, t("event.new")) %>
 
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
-    <h2>New Event</h2>
+    <h2><%= t("event.new") %></h2>
     <%= render 'form', event: @event %>
-    <%= link_to 'Back', events_path %>
+    <%= link_to t("back_button"), events_path %>
   </div>
 </div>
 

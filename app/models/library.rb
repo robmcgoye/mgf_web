@@ -12,15 +12,21 @@ class Library < ApplicationRecord
   
   after_initialize :set_defaults
 
+  ACTIONS = [:link, :page, :none]
+
+  def self.options
+    ACTIONS.map( &:to_s )
+  end
+
   def action_is_link?
-    action == "link"
+    action == 'link'
   end
 
   def action_is_page?
-    action == "page"
+    action == 'page'
   end
 
   def set_defaults
-    self.action ||= "none"
+    self.action ||= 'none'
   end
 end

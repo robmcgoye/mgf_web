@@ -1,13 +1,13 @@
-<% provide(:title, "Edit Event") %>
+<% provide(:title, t("event.edit")) %>
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
-    <h2>Edit Event</h2>
+    <h2><%= t("event.edit") %></h2>
     <%= render 'form', event: @event %>
     <div class="btn-group p-2">
-      <%= link_to 'Delete', @event, class: "btn btn-sm btn-outline-dark", 
-                            method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to 'Show', @event, class: "btn btn-sm btn-outline-dark" %> 
-      <%= link_to 'Back', events_path, class: "btn btn-sm btn-outline-dark"%>
+      <%= link_to t(:delete_button), @event, class: "btn btn-sm btn-outline-dark", 
+                            method: :delete, data: { confirm: t(:delete_confirmation) } %>
+      <%= link_to t(:view_button), @event, class: "btn btn-sm btn-outline-dark" %> 
+      <%= link_to t(:back_button), events_path, class: "btn btn-sm btn-outline-dark"%>
     </div>
   </div>
 </div>

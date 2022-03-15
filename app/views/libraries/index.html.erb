@@ -1,4 +1,4 @@
-<% provide(:title, "Resources") %>
+<% provide(:title, t("library.title.index")) %>
 
 <div class="card mb-3 shadow-lg rounded border main-display" 
         style="background-color: #f1e5f1">
@@ -7,13 +7,13 @@
     <div class="container-fluid py-5 d-flex justify-content-center align-items-end text-white" id="library_background">
       <div class="row row-cols-1 fw-bold text-center">
         <div class="col">
-          <%= link_to "New Resource", new_library_path, class: "btn btn-sm btn-outline-light" if admin_user? %>
+          <%= link_to t("library.new"), new_library_path, class: "btn btn-sm btn-outline-light" if admin_user? %>
         </div>
         <div class="col fs-4">
-          Welcome to the ever growing, Mangrove Library
+          <%= t("library.welcome_heading") %>
         </div>
         <div class="col pt-3">
-          Where you have free access to Mangrove and Wetland related information.
+          <%= t("library.welcome_subheading") %>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
                   </div>
                 <% end %>
                 <div class="container pt-1">
-                  <%= link_to 'Edit', edit_library_path(library), 
+                  <%= link_to t(:edit_button), edit_library_path(library), 
                             class: "btn btn-sm btn-outline-dark" if admin_user? %>
                 </div>
               </div>

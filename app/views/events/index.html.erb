@@ -1,10 +1,10 @@
-<% provide(:title, "Events") %>
+<% provide(:title, t("event.heading")) %>
 <div class="row align-items-center">
   <div class="col-md-auto">
-    <h3 class="text-light"><%= "Events" %></h3>
+    <h3 class="text-light"><%= t("event.heading") %></h3>
   </div>
   <div class="col-md-auto">
-    <%= link_to "New Event", new_event_path, 
+    <%= link_to t("event.new"), new_event_path, 
                 class: "btn btn-sm btn-outline-light" if admin_user? %>
   </div>
 </div>
@@ -21,13 +21,13 @@
             <div class="card-body">
               <p class="small card-text">
                 <b><%= event.title %></b><br>
-                <i><%= event.event_date.strftime("%A, %b %d, %Y") %></i>
+                <i><%= l(event.event_date, format: :event) %></i>
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <%= link_to 'View', event, 
+                  <%= link_to t(:view_button), event, 
                           class: "btn btn-sm btn-outline-dark" %> 
-                  <%= link_to 'Edit', edit_event_path(event), 
+                  <%= link_to t(:edit_button), edit_event_path(event), 
                             class: "btn btn-sm btn-outline-dark" if admin_user? %> 
 
 

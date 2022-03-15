@@ -19,7 +19,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
-      flash[:notice] = "Gallery was successfully created."
+      flash[:notice] = I18n.t("gallery.created")
       redirect_to gallery_url(@gallery)
     else
       render :new
@@ -28,7 +28,7 @@ class GalleriesController < ApplicationController
 
   def update
     if @gallery.update(gallery_params)
-      flash[:notice] = "Gallery was successfully updated."
+      flash[:notice] = I18n.t("gallery.updated")
       redirect_to gallery_url(@gallery)
     else
       render :edit
@@ -37,7 +37,7 @@ class GalleriesController < ApplicationController
 
   def destroy
     @gallery.destroy
-    flash[:notice] = "Gallery was successfully deleted."
+    flash[:notice] = I18n.t("gallery.deleted")
     redirect_to galleries_url
   end
 

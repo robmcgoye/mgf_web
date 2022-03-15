@@ -1,13 +1,13 @@
-<% provide(:title, "Edit Gallery") %>
+<% provide(:title, t("gallery.edit")) %>
 <div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
   <div class="card-body text-dark">
-    <h2>Edit Gallery</h2>
+    <h2><%= t("gallery.edit") %></h2>
     <%= render 'form', gallery: @gallery %>
     <div class="btn-group p-2">
-      <%= link_to 'Delete', @gallery, class: "btn btn-sm btn-outline-dark", 
-                            method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to 'Show', @gallery, class: "btn btn-sm btn-outline-dark" %> 
-      <%= link_to 'Back', galleries_path, class: "btn btn-sm btn-outline-dark"%>
+      <%= link_to t(:delete_button), @gallery, class: "btn btn-sm btn-outline-dark", 
+                            method: :delete, data: { confirm: t(:delete_confirmation) } %>
+      <%= link_to t(:view_button), @gallery, class: "btn btn-sm btn-outline-dark" %> 
+      <%= link_to t(:back_button), galleries_path, class: "btn btn-sm btn-outline-dark"%>
     </div>
   </div>
 </div>
