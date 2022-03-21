@@ -22,7 +22,7 @@ class LibrariesController < ApplicationController
   def create
     @library = Library.new(library_params)
     if @library.save
-      flash[:notice] = I18n.t("gallery.created")
+      flash[:notice] = I18n.t("library.created")
       redirect_to library_url(@library)
     else
       render :new
@@ -31,7 +31,7 @@ class LibrariesController < ApplicationController
 
   def update
     if @library.update(library_params)
-      flash[:notice] = I18n.t("gallery.updated")
+      flash[:notice] = I18n.t("library.updated")
       redirect_to library_url(@library)
     else
       render :edit
@@ -40,7 +40,7 @@ class LibrariesController < ApplicationController
 
   def destroy
     @library.destroy
-    flash[:notice] = I18n.t("gallery.deleted")
+    flash[:notice] = I18n.t("library.deleted")
     redirect_to libraries_url
   end
 

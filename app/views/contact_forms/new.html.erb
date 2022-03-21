@@ -10,7 +10,7 @@
       <% unless @page.body.blank? %>
         <%= @page.body.html_safe %>
       <% end %>
-      <%= link_to t(:edit_btn), edit_page_path(@page), 
+      <%= link_to t(:edit_button), edit_page_path(@page), 
                   class: "btn btn-sm btn-outline-dark" if admin_user? %>
     </div>
   </div>
