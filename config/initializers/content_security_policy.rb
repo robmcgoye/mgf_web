@@ -9,6 +9,8 @@ Rails.application.config.content_security_policy do |policy|
   policy.font_src    :self, :https, :data
   policy.img_src     :self, :https, :data
   policy.object_src  :none
+  policy.media_src  :none
+  policy.child_src  :none
   policy.script_src  :self, :https
   # "'sha256-3mlDP3A+P+hdKPAid+jW62qRYTvpMHzuF9P6yaNmNWA='"
   policy.style_src   :https, :self, "'unsafe-inline' *.tinymce.com *.tiny.cloud"
