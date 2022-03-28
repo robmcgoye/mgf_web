@@ -1,5 +1,5 @@
 menubar: true
-height: 300
+height: 400
 toolbar:
   - undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image | help
 plugins:

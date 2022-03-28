@@ -9,8 +9,11 @@ class Library < ApplicationRecord
   validates :title, presence: true, length: { minimum: 1, maximum: 125 }  
   validates :link, http_url: true, if: :action_is_link?
   validates :body, presence: true, if: :action_is_page?
+  validates :sort_order, numericality: true
   
   after_initialize :set_defaults
+
+  default_scope { order(sort_order: :asc) }
 
   ACTIONS = [:link, :page, :none]
 

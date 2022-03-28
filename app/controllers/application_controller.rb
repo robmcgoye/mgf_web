@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   before_action :set_locale
   helper_method :current_user, :logged_in?, :admin_user?
 

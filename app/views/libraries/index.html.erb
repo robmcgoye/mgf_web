@@ -1,6 +1,6 @@
 <% provide(:title, t("library.title.index")) %>
 
-<div class="card mb-3 shadow-lg rounded border main-display" 
+<div class="card mb-3 shadow-lg rounded border main-display"
         style="background-color: #f1e5f1">
   <div class="card-body text-dark">
 
@@ -18,18 +18,32 @@
       </div>
     </div>
     <div class="container pt-2">
+
+      <% if @pagy.pages > 1 %>
+        <div class="d-flex justify-content-center">
+          <%== render partial: 'pagy/bootstrap_nav', locals: {pagy: @pagy} %>
+        </div>
+      <% end %>
+
+
       <div class="accordion" id="accordionLib">
         <% @libraries.each_with_index do |library, index| %>
           <div class="accordion-item">
             <h2 class="accordion-header" id="heading<%= index %>">
-              <button class="accordion-button<%= " collapsed" if index != 0 %>" type="button" data-bs-toggle="collapse" 
-                      data-bs-target="#collapse<%= index %>" 
+              <button class="accordion-button<%= " collapsed" if index != 0 %>" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapse<%= index %>"
                       aria-expanded=<%= index == 0 ? "true" : "false" %>
                       aria-controls="collapse<%= index %>">
                 <%= library.title %>
+                <% if admin_user? %>
+                  <div class="ps-3 fst-italic">
+                    <%= "sort: #{library.sort_order}"%>
+                    <%= " Unpublished" unless library.published %>
+                  </div>
+                <% end %>
               </button>
             </h2>
-            <div id="collapse<%= index %>" class="accordion-collapse collapse<%= " show" if index == 0 %>" 
+            <div id="collapse<%= index %>" class="accordion-collapse collapse<%= " show" if index == 0 %>"
                   aria-labelledby="heading<%= index %>" data-bs-parent="#accordionLib">
               <div class="accordion-body">
                 <% if library.action == "page" %>
@@ -44,31 +58,41 @@
                   <% end %>
                 <% end %>
                 <% if library.subtitles.present? %>
-                  <div class="list-group">              
+                  <div class="list-group">
                     <% library.subtitles.each do |subtitle| %>
                       <% if subtitle.link.present? %>
                         <%= link_to subtitle.link, class: "list-group-item list-group-item-action list-group-item-light" do %>
                           <i class="bi bi-link"></i>
                           <%= subtitle.title %>
+                          <%= " Sort: #{subtitle.sort_order}" if admin_user? %>
                         <% end %>
                       <% else %>
                         <span class="list-group-item list-group-item-light">
                           <i class="bi bi-dot"></i>
                           <%= subtitle.title %>
+                          <%== "<em> Sort: #{subtitle.sort_order}</em>" if admin_user? %>
                         </span>
                       <% end %>
+
                     <% end %>
                   </div>
                 <% end %>
                 <div class="container pt-1">
-                  <%= link_to t(:edit_button), edit_library_path(library), 
+                  <%= link_to t(:edit_button), edit_library_path(library),
                             class: "btn btn-sm btn-outline-dark" if admin_user? %>
                 </div>
               </div>
             </div>
           </div>
-        <% end %> 
+        <% end %>
       </div>
+
+      <% if @pagy.pages > 1 %>
+        <div class="pt-3 d-flex justify-content-center">
+          <%== render partial: 'pagy/bootstrap_nav', locals: {pagy: @pagy} %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

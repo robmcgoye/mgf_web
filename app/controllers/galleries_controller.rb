@@ -3,10 +3,17 @@ class GalleriesController < ApplicationController
   before_action :require_admin_user, only: [:new, :edit, :update, :destroy]
 
   def index
-    @galleries = Gallery.all
+    if admin_user?
+      @pagy, @galleries = pagy(Gallery.all, items: 6)
+    else
+      @pagy, @galleries = pagy(Gallery.where(published: true), items: 6)
+    end
   end
 
   def show
+    if !admin_user? && !@gallery.published
+      redirect_to galleries_url
+    end
   end
     
   def new
@@ -49,7 +56,7 @@ class GalleriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gallery_params
-      params.require(:gallery).permit(:title, :thumbnail, :sort_order, 
+      params.require(:gallery).permit(:title, :thumbnail, :sort_order, :published, 
                     photos_attributes: [:id, :picture, :caption, :sort_order,:_destroy])
     end
 end

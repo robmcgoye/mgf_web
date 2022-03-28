@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_185121) do
+ActiveRecord::Schema.define(version: 2022_03_24_170655) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_03_13_185121) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "event_date"
+    t.boolean "published"
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_03_13_185121) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "sort_order", default: 0
+    t.boolean "published"
   end
 
   create_table "libraries", force: :cascade do |t|
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 2022_03_13_185121) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "action"
+    t.integer "sort_order", default: 0
+    t.boolean "published"
   end
 
   create_table "mobility_string_translations", force: :cascade do |t|
@@ -86,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_03_13_185121) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sort_order", default: 0
     t.index ["library_id"], name: "index_subtitles_on_library_id"
   end
 

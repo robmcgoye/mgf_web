@@ -3,10 +3,17 @@ class EventsController < ApplicationController
   before_action :require_admin_user, only: [:new, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    if admin_user?
+      @pagy, @events = pagy(Event.all, items: 6)
+    else
+      @pagy, @events = pagy(Event.where(published: true), items: 6)
+    end
   end
 
   def show
+    if !admin_user? && !@event.published
+      redirect_to events_url
+    end
   end
     
   def new
@@ -49,6 +56,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :thumbnail, :event_date, :body)
+      params.require(:event).permit(:title, :thumbnail, :event_date, :body, :published)
     end
 end

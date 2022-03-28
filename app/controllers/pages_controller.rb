@@ -34,6 +34,10 @@ class PagesController < ApplicationController
     @page = load_page(:photographer_2)
   end
 
+  def photographer_3
+    @page = load_page(:photographer_3)
+  end
+
   def edit
   end
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  pages = %w(about history mission philosophy links photographer_1 photographer_2 contact)
+  pages = %w(about history mission philosophy links photographer_1 photographer_2 
+              photographer_3 contact)
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root 'pages#home'

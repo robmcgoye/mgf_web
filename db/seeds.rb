@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-pages = %w(home about history mission philosophy links photographer_1 photographer_2 contact)
+pages = %w(home about history mission philosophy links photographer_1 
+            photographer_2 photographer_3 contact)
 pages.each do |page|
   pg = Page.new(
     name: page, 

@@ -33,6 +33,9 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
 gem 'invisible_captcha', '~> 2.0'
 gem 'cocoon', '~> 1.2', '>= 1.2.15'
+gem 'pagy', '~> 5.10', '>= 5.10.1'
+# gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+# gem 'will-paginate-i18n', '~> 0.1.15'
 #=========================================
 
 group :production do

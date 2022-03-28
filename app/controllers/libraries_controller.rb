@@ -1,14 +1,22 @@
 class LibrariesController < ApplicationController
   before_action :set_library, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_user, only: [:new, :edit, :update, :destroy]
-
+  
   def index
-    @libraries = Library.all
+    if admin_user?
+      @pagy, @libraries = pagy(Library.all, items: 10)
+    else
+      @pagy, @libraries = pagy(Library.where(published: true), items: 10)
+    end
   end
 
   def show
     if @library.action != "page"
-      redirect_to libraries_path
+      redirect_to libraries_url
+    else
+      if !admin_user? && !@gallery.published
+        redirect_to libraries_url
+      end
     end
   end
     
@@ -53,6 +61,7 @@ class LibrariesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def library_params
       params.require(:library).permit(:title, :action, :link, :thumbnail, :body, 
-              subtitles_attributes: [:id, :title, :link, :thumbnail, :_destroy])
+              :published, :sort_order, 
+              subtitles_attributes: [:id, :title, :link, :sort_order, :thumbnail, :_destroy])
     end
 end

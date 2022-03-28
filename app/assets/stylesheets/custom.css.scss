@@ -130,3 +130,38 @@ body{
     color: #d286fe;
   }
 }
+
+.dark-pagination{
+  background-color: #f5daf5;
+  border-color: #5B2D59;
+  color: #5B2D59;
+  &:hover {
+    color: #f5daf5;
+    background-color: #533b53;
+    border-color: #f5daf5;
+  }
+}
+.card {
+  &.published{
+    background-color: #f1e5f1;
+  }
+  &.unpublished{
+    background-color: #c7c7c7;
+  }
+}
+
+.page-item {
+  &.dark-active .page-link{
+    background-color: #533b53;
+    border-color: #f5daf5;
+    z-index: 3;
+    color: white;
+    pointer-events: none;
+  }
+  &.dark-disabled .page-link {
+    color: #d6d6d6;
+    pointer-events: none;
+    background-color: #776276;
+    border-color: #f5daf5;
+  }
+}
