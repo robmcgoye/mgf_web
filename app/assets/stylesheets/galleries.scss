@@ -1,0 +1,30 @@
+
+.flex-caption {
+  width: 100%;
+  padding: 1%;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+  font-size: 14px;
+  line-height: 18px;
+}
+.flexslider {
+  border: none !important;
+
+}
+.flexslider .slides img {
+  max-height: 520px; /*maximum height for all slides*/
+  width: auto; /*proper aspect ratio of images*/
+  max-width: 100%; /*maximum width for all slides*/
+  margin: 0 auto; /*centering images in the container*/
+}
+
+.flex-direction-nav a{
+  line-height: 40px;
+}
+
+.gallery-listing-col{
+  min-width: 285px;
+}

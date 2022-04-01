@@ -1,42 +1,20 @@
 <% provide(:title, t("gallery.title.show")) %>
-<div class="card mb-3 shadow-lg rounded border main-display" style="background-color: #f1e5f1">
+<div class="card mb-3 shadow-lg rounded border main-display mgf-body">
   <div class="card-body text-dark">
     <h3><%= @gallery.title %></h3>
-    <div id="photoGallery" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      
-      <div class="carousel-indicators">
-        <% @gallery.photos.each_with_index do |photo, index| %>
-          <button type="button" data-bs-target="#photoGallery" 
-            data-bs-slide-to="<%= index %>" <%= "class=active aria-current=true " if index == 0 %> 
-            aria-label="Slide <%= index + 1 %>"></button>
-        <% end %>
-      </div>
-      
-      <div class="carousel-inner">
-        <% @gallery.photos.each do |photo| %>
-          <div class="carousel-item<%= " active" if @gallery.photos.first == photo %>" 
-                data-bs-interval="10000">
-            <%= image_tag photo.picture_url, alt: photo.picture_identifier, class: "d-block w-100" %>
-            <div id="my-caption" class="carousel-caption d-none d-md-block">
-              <p style="text-align: justify;"><%= photo.caption %></p>
-            </div>
-          </div>
-        <% end %>  
-      </div>
 
-      <button class="carousel-control-prev" type="button" 
-              data-bs-target="#photoGallery" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden"><%= t("gallery.previous") %></span>
-      </button>
-      
-      <button class="carousel-control-next" type="button" 
-              data-bs-target="#photoGallery" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden"><%= t("gallery.next") %></span>
-      </button>
+    <div class="flexslider mgf-body">
+      <ul class="slides">
+        <% @gallery.photos.each do |photo| %>
+        <li>
+          <img src="<%= photo.picture_url %>" />
+          <p class="flex-caption"><%= photo.caption %></p>
+        </li>
+        <% end %>
+      </ul>
+
     </div>
-    <div class="new-caption-area"></div>
+
   </div>
 </div>
 

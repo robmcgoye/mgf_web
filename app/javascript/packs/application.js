@@ -13,10 +13,7 @@ Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
 
-// require('jquery-ui')
-// require('fotorama')
-require("@nathanvda/cocoon")
-import "scroll_top.js"
-import "carousel_caption.js";
-
-
+require("@nathanvda/cocoon");
+import "scroll_top.js";
+import "photo_gallery.js";
+import "resource_form.js";

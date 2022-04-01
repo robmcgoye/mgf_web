@@ -27,27 +27,21 @@
   <hr>
   <div class="row">
     <div class="col">
-      <% Library.options.each_with_index do |a, index| %>
+      <% Library.options.each do |a| %>
         <div class="form-check form-check-inline">
-          <%= form.label :action, t("library.action.#{a}"), class: "form-check-label", for: "inlineRadio#{index.to_s}" %>
-          <%= form.radio_button :action, a, class: "form-check-input", id: "inlineRadio#{index.to_s}" %>
+          <%= form.label :action, t("library.action.#{a}"), class: "form-check-label", for: "resource-action-#{a}" %>
+          <%= form.radio_button :action, a, class: "form-check-input", id: "resource-action-#{a}" %>
         </div>
       <% end %>
     </div>
-    <div class="col">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-        <label class="form-check-label" for="flexSwitchCheckChecked">Hide</label>
-      </div>
-    </div>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group" id="link-group">
     <%= form.label :link %>
     <%= form.text_field :link, class: "form-control" %>
   </div>
   
-  <div class="field form-group pt-2">
+  <div class="field form-group pt-2" id="page-group">
     <%= form.text_area :body, class: "tinymce" %>
     <%= tinymce %>
   </div>
