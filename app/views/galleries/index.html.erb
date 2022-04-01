@@ -18,7 +18,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% @galleries.each do |gallery| %>
-        <div class="col gallery-listing-col">
+        <div class="col">
           <div class="card shadow-sm <%= gallery.published ? "published" : "unpublished" %>">
 
             <%= image_tag(gallery.thumbnail_url, 
