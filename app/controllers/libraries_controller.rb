@@ -14,7 +14,7 @@ class LibrariesController < ApplicationController
     if @library.action != "page"
       redirect_to libraries_url
     else
-      if !admin_user? && !@gallery.published
+      if !admin_user? && !@library.published
         redirect_to libraries_url
       end
     end
