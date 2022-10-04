@@ -61,7 +61,7 @@ class PagesController < ApplicationController
   private
   
     def load_page(page_name)
-      Page.find_by_name(page_name)
+      Page.find_by_name(page_name) || Page.create!(name: page_name, body: "CONTACT administrator. Newly created page: #{page_name}")
     end
 
     def set_page
